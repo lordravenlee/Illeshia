@@ -1,0 +1,32 @@
+use.system.io;
+use.system.haven;
+
+num add(num a, num b)
+{
+  num ret;
+  ret = a + b;
+
+  return ret;
+}
+
+num main()
+{
+  num x, y, z;
+
+  z = add(x, y);
+
+  write("Enter two numbers to add\n");
+  read("%d%d", &x, &y);
+
+  z = x + y;
+
+  write("Sum of the numbers = %d\n", z);
+
+  check (x > y)
+    write("Big");
+  else
+    write("Small");
+
+  return 0;
+}
+

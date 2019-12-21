@@ -1,0 +1,89 @@
+use.system.io;
+use.system.haven;
+
+bridge unionJob                //test for union
+{
+   mark name<32>;             //test for char and array
+   deci salary;               //test for float
+   num  workerNo;            //test for int and variable
+} uJob;
+
+construct structJob           //test for struct
+{
+   mark name<32>;
+   deci salary;
+   num workerNo;
+} sJob;
+
+log week                     //test for enum
+{
+    Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+};
+
+test_function1()          //test for second function, array, and for loops
+{
+  num values<5>;
+
+  write("Enter 5 integers: ");
+
+  // taking input and storing it in an array
+  set(num i = 0; i < 5; ++i) 
+  {
+     read("%d", &values<i>);
+  }
+
+  write("Displaying integers: ");
+
+  // printing elements of an array
+  set(num i = 0; i < 5; ++i)
+  {
+     write("%d\n", values[i]);
+  }
+}
+
+test_function2()
+{
+    num i = 1;
+    
+    loop (i <= 5)
+    {
+        write("%d\n", i);
+        ++i;
+    }
+
+}
+
+
+num main()
+{
+    write("size of union aka bridge = %d bytes", sizeof(uJob));
+    write("\nsize of structure aka construct = %d bytes", sizeof(sJob));
+
+    log week today;
+    today = Wednesday;
+    write("Day %d",today+1);
+
+	decii number2 = 12.4;
+	write("number2 = %lf", number2);
+
+   test_function1();
+   test_function1();
+
+    num number;
+
+    write("Enter an integer: ");
+
+    read("%d", &number);
+
+    // True if the remainder is 0
+    check(number%2 == 0)
+	{
+        write("%d is an even integer.",number);
+    }
+    else
+	{
+        write("%d is an odd integer.",number);
+    }
+
+  return 0;
+}
